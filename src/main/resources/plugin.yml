@@ -1,0 +1,4 @@
+main: com.rooxchicken.dupepatch.DupePatch
+name: BookAndQuillDupePatch
+version: 1.0
+api-version: '1.21'
