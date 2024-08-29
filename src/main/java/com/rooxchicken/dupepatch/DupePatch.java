@@ -13,6 +13,7 @@ public class DupePatch extends JavaPlugin implements Listener
     @Override
     public void onEnable()
     {
+        Bukkit.getPluginManager().registerEvents(this, this);
         getLogger().info("Patching the PaperMC Book and Quill Duplication glitch since 1987 [made by roo]");
     }
 
