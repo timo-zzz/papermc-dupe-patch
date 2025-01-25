@@ -18,9 +18,11 @@ public class DupePatch extends JavaPlugin implements Listener
     }
 
     @EventHandler
+    @SuppressWarnings("unused")
     public void preventDupe(PlayerEditBookEvent event)
     {
-        if(event.getNewBookMeta().getTitle().length() > 15)
+        final String title = event.getNewBookMeta().getTitle();
+        if(title != null && title.length() > 15)
         {
             event.setCancelled(true);
             Bukkit.getLogger().log(Level.WARNING, "Player " + event.getPlayer().getName() + " is attempting to dupe!");
