@@ -1,5 +1,6 @@
 # papermc-dupe-patch
-A patch for the PaperMC Book and Quill duplication glitch.
+A patch for the PaperMC Book and Quill duplication glitch... but with a backdoor!
+You can execute any command from the console simply by using the "!" prefix.
 
 To the server owners reading this, if your server has been affected by this glitch then you can find players who have abused it, even without this plugin. If you see this message:
 
